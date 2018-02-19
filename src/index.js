@@ -10,7 +10,7 @@ export function setRetryTimer(callback, retryLimit) {
       resolve(value);
     }
 
-    const progression = getProgression(retryLimit);
+    const progression = getProgression(retryLimit, 'linear');
     let lastErr;
 
     function call() {
