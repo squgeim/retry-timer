@@ -39,7 +39,7 @@ export function setRetryTimer(
       }
 
       setTimeout(() => {
-        callback()
+        Promise.resolve(callback())
           .then(val => {
             done(null, val);
           })

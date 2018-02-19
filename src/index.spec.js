@@ -4,7 +4,7 @@ import progressionTypes from './constants/progressionTypes';
 it('should iterate 3 times', () => {
   const spy = jest.fn(() => Promise.reject());
 
-  return setRetryTimer(spy, 3).catch(() => {
+  return setRetryTimer(spy, { maxRetry: 3, type: 'linear' }).catch(() => {
     expect(spy).toHaveBeenCalledTimes(3);
   });
 });
