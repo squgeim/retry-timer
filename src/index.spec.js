@@ -24,7 +24,10 @@ it('should stop retry after function resolves', () => {
 
   const spy = jest.fn(func);
 
-  return setRetryTimer(spy, 10, progressionTypes.LINEAR).then(val => {
+  return setRetryTimer(spy, {
+    maxRetry: 10,
+    type: progressionTypes.LINEAR,
+  }).then(val => {
     expect(val).toBe('done');
     expect(spy).toHaveBeenCalledTimes(3);
   });

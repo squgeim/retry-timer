@@ -10,14 +10,14 @@ import progressionTypes from './constants/progressionTypes';
  * or rejects the last error from the callback (when the max limit is met).
  *
  * @param {Function} callback - The function that is retried until it resolves
- * @param {Number} retryLimit - Maximum number of attempts before failure
- * @param {String} progressionType - The type of progression (linear or fibonacci)
+ * @param {Object} options - Configuration options
+ * @param {Number} options.maxRetry - Maximum number of attempts before failure
+ * @param {String} options.type - The type of progression (linear or fibonacci)
  * @returns {Promise} Returns the resolved value of the callback function
  */
 export function setRetryTimer(
   callback,
-  retryLimit = 10,
-  progressionType = progressionTypes.LINEAR
+  { maxRetry = 10, type = progressionTypes.FIBONACCI }
 ) {
   return new Promise((resolve, reject) => {
     function done(err, value) {
@@ -28,7 +28,7 @@ export function setRetryTimer(
       resolve(value);
     }
 
-    const progression = getProgression(retryLimit, progressionType);
+    const progression = getProgression(maxRetry, type);
     let lastErr;
 
     function call() {
