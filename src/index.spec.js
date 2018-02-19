@@ -7,3 +7,24 @@ it('should iterate 3 times', () => {
     expect(spy).toHaveBeenCalledTimes(3);
   });
 });
+
+it('should stop retry after function resolves', () => {
+  const func = (() => {
+    let count = 0;
+
+    return () => {
+      if (++count === 3) {
+        return Promise.resolve('done');
+      }
+
+      return Promise.reject();
+    };
+  })();
+
+  const spy = jest.fn(func);
+
+  return setRetryTimer(spy, 10, 'linear').then(val => {
+    expect(val).toBe('done');
+    expect(spy).toHaveBeenCalledTimes(3);
+  });
+});

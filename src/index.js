@@ -1,6 +1,10 @@
 import getProgression from './util/getProgression';
 
-export function setRetryTimer(callback, retryLimit) {
+export function setRetryTimer(
+  callback,
+  retryLimit = 10,
+  progressionType = 'linear'
+) {
   return new Promise((resolve, reject) => {
     function done(err, value) {
       if (err) {
@@ -10,7 +14,7 @@ export function setRetryTimer(callback, retryLimit) {
       resolve(value);
     }
 
-    const progression = getProgression(retryLimit, 'linear');
+    const progression = getProgression(retryLimit, progressionType);
     let lastErr;
 
     function call() {
