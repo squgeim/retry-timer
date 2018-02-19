@@ -2,8 +2,32 @@
   "name": "retry-timer",
   "version": "1.0.0",
   "description": "A simple progressive timer best used to retry something until it is successfull",
-  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\""
+  },
+  "main": "lib/index.js",
   "repository": "https://github.com/squgeim/retry-timer",
   "author": "Shreya Dahal <shreyadahal@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-env": "^2.4.1",
+    "babel-jest": "^22.2.2",
+    "eslint": "^4.18.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-jest": "^21.12.2",
+    "eslint-plugin-prettier": "^2.6.0",
+    "jest": "^22.3.0",
+    "prettier": "^1.10.2"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "jest"
+    ]
+  }
 }
