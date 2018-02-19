@@ -1,0 +1,9 @@
+{
+  "name": "retry-timer",
+  "version": "1.0.0",
+  "description": "A simple progressive timer best used to retry something until it is successfull",
+  "main": "index.js",
+  "repository": "https://github.com/squgeim/retry-timer",
+  "author": "Shreya Dahal <shreyadahal@gmail.com>",
+  "license": "MIT"
+}
