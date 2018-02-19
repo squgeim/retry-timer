@@ -1,6 +1,19 @@
 import getProgression from './util/getProgression';
 import progressionTypes from './constants/progressionTypes';
 
+/**
+ * Takes a callback function that should return a promise. The callback will be
+ * tried in a progression according to the progression type provided until the
+ * function resolves or the maximum retry limit is met.
+ *
+ * The returned promise will resolve with the return value of the given callback,
+ * or rejects the last error from the callback (when the max limit is met).
+ *
+ * @param {Function} callback - The function that is retried until it resolves
+ * @param {Number} retryLimit - Maximum number of attempts before failure
+ * @param {String} progressionType - The type of progression (linear or fibonacci)
+ * @returns {Promise} Returns the resolved value of the callback function
+ */
 export function setRetryTimer(
   callback,
   retryLimit = 10,

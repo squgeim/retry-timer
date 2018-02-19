@@ -1,5 +1,8 @@
 import progressionTypes from '../constants/progressionTypes';
 
+/**
+ * Returns a generator that yields the values of the fibonacci series.
+ */
 function* getFib() {
   let i = 0;
   let j = 1;
@@ -14,6 +17,9 @@ function* getFib() {
   }
 }
 
+/**
+ * Returns a generator that yields the values of a linear series (0, 1, 2, 3, 4,...).
+ */
 function* getLinear() {
   for (let i = 0; ; i++) {
     yield i;
@@ -31,6 +37,10 @@ function getSequence(type) {
   }
 }
 
+/**
+ * @param {Number} limit - The maximum limit
+ * @param {String} sequenceType - The type of sequence
+ */
 function* getProgression(limit, sequenceType) {
   const sequence = getSequence(sequenceType);
 
