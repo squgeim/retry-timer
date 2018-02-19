@@ -10,7 +10,7 @@ it('should return a generator that yield 3 times', () => {
   expect(progression.next().done).toBe(true);
 });
 
-it('should return the fibonaci sequence', () => {
+it('should return the fibonacci sequence', () => {
   const progression = getProgression(10, progressionTypes.FIBONACCI);
 
   const list = [];
