@@ -1,4 +1,5 @@
 import getProgression from './getProgression';
+import progressionTypes from '../constants/progressionTypes';
 
 it('should return a generator that yield 3 times', () => {
   const progression = getProgression(3);
@@ -10,7 +11,7 @@ it('should return a generator that yield 3 times', () => {
 });
 
 it('should return the fibonaci sequence', () => {
-  const progression = getProgression(10, 'fibonacci');
+  const progression = getProgression(10, progressionTypes.FIBONACCI);
 
   const list = [];
 

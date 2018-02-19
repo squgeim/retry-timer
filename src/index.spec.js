@@ -1,4 +1,5 @@
 import { setRetryTimer } from './index';
+import progressionTypes from './constants/progressionTypes';
 
 it('should iterate 3 times', () => {
   const spy = jest.fn(() => Promise.reject());
@@ -23,7 +24,7 @@ it('should stop retry after function resolves', () => {
 
   const spy = jest.fn(func);
 
-  return setRetryTimer(spy, 10, 'linear').then(val => {
+  return setRetryTimer(spy, 10, progressionTypes.LINEAR).then(val => {
     expect(val).toBe('done');
     expect(spy).toHaveBeenCalledTimes(3);
   });

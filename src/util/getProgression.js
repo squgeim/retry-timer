@@ -1,3 +1,5 @@
+import progressionTypes from '../constants/progressionTypes';
+
 function* getFib() {
   let i = 0;
   let j = 1;
@@ -20,10 +22,10 @@ function* getLinear() {
 
 function getSequence(type) {
   switch (type) {
-    case 'fib':
-    case 'fibonacci':
+    case progressionTypes.FIBONACCI:
       return getFib();
 
+    case progressionTypes.LINEAR:
     default:
       return getLinear();
   }
