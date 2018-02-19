@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "A simple progressive timer best used to retry something until it is successfull",
   "scripts": {
-    "build": "babel src -d lib",
+    "build": "rimraf lib; babel src -d lib",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\""
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\"",
+    "prepare": "npm run-script build"
   },
   "main": "lib/index.js",
   "repository": "https://github.com/squgeim/retry-timer",
@@ -22,8 +23,18 @@
     "eslint-plugin-jest": "^21.12.2",
     "eslint-plugin-prettier": "^2.6.0",
     "jest": "^22.3.0",
-    "prettier": "^1.10.2"
+    "prettier": "^1.10.2",
+    "rimraf": "^2.6.2"
   },
+  "keywords": [
+    "retry",
+    "timer",
+    "setTimeout",
+    "fibonacci",
+    "periodic",
+    "sequence",
+    "progressive"
+  ],
   "babel": {
     "presets": [
       "env",
